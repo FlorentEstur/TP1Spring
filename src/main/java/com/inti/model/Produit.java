@@ -27,7 +27,7 @@ public class Produit {
 	private String dateExpiration;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "Produit_Restaurant",joinColumns = @JoinColumn(name = "Produit"),
+	@JoinTable(name = "Produit_Restaurant",joinColumns = @JoinColumn(name = "r"),
 	inverseJoinColumns = @JoinColumn(name = "Restaurant"))
 	private List<Restaurant> restaurant;
 } 
