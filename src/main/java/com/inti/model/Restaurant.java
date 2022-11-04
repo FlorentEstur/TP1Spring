@@ -1,7 +1,12 @@
 package com.inti.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +19,10 @@ import lombok.NoArgsConstructor;
 public class Restaurant {
 
 	@Id
-	private int numero;
-	private int telephone;
-	int barbie;
+	protected int numero;
+	protected int telephone;
+	
+	@ManyToMany
+	@JoinTable(name ="Produit_Restaurant", joinColumns = @JoinColumn (name="numero"), inverseJoinColumns = @JoinColumn(name="reference"))
+	private List<Produit> listeProduit;
 }
