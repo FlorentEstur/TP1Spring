@@ -16,4 +16,5 @@ public class Restaurant {
 	@Id
 	private int numero;
 	private int telephone;
+	int barbie;
 }
