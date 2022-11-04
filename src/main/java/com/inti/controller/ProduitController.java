@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.model.Produit;
@@ -53,7 +54,7 @@ public class ProduitController {
 	@DeleteMapping("deleteProduit/{id}")
 	public boolean deleteProduit(@PathVariable int id) {
 		int maxID = ipr.findMaxID();
-		if (id > 0 && id< maxID) {
+		if (id > 0 && id<= maxID) {
 			ipr.deleteById(id);
 			log.info("la fonction a marche");
 			return true;
@@ -73,5 +74,10 @@ public class ProduitController {
 				.orElseGet(() -> {
 					return ipr.save(nouveauProduit);
 				});
-	}
+//	}
+//	@GetMapping("updateAdresseCp")
+//	public void updateMagasinByAdresseAndCp(@RequestParam(name ="adresse") String adresse, @RequestParam (name ="cp")int cp, @RequestParam(name ="id") int id) {
+//		 ipr.updateAdressAndCpById(adresse, cp, id);
+		}
+
 }

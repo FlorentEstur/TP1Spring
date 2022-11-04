@@ -1,5 +1,6 @@
 package com.inti.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,8 +24,8 @@ public class Produit {
 	@Id
 	private int reference;
 	private String type; 
-	private String dateFabrication; 
-	private String dateExpiration;
+	private LocalDate dateFabrication; 
+	private LocalDate dateExpiration;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "Produit_Restaurant",joinColumns = @JoinColumn(name = "reference"),
