@@ -12,6 +12,6 @@ import com.inti.model.Produit;
 @Transactional
 public interface IProduitRepository extends JpaRepository<Produit, Integer> {
 
-	@Query(value= "select max(id) from magasin_spring", nativeQuery = true)
+	@Query(value= "select max(id) from produit_tp1", nativeQuery = true)
 	int findMaxID();
 }
