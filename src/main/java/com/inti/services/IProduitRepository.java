@@ -1,5 +1,17 @@
 package com.inti.services;
 
-public interface IProduitRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.inti.model.Produit;
+
+
+@Repository
+@Transactional
+public interface IProduitRepository extends JpaRepository<Produit, Integer> {
+
+	@Query(value= "select max(id) from magasin_spring", nativeQuery = true)
+	int findMaxID();
 }
